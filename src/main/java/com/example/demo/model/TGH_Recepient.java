@@ -29,7 +29,10 @@ public class TGH_Recepient
 	private Long generator_id;
 	@Column(name="REC_NAME")
 	//@JsonProperty("rec_name")
-	
+	//@JsonProperty("rec_name")
+	//@JsonProperty("rec_name")
+	//@JsonProperty("rec_name")
+	//@JsonProperty("rec_name")s
 	private String rec_name;
 	@Column(name="REC_TEL_NO")
 	private String telephone_number;
