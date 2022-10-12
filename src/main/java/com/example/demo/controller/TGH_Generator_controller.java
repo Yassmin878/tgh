@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class TGH_Generator_controller
 //	
 	@ApiOperation(value = "inser in (generator,sender,rec,telegraph) table")
 	@PostMapping("/sender&recipient")
-	public ApiException  add_sender(@RequestBody TGH_Generator generator)
+	public ApiException  add_sender(@RequestBody TGH_Generator generator) throws UnsupportedEncodingException
     {
 		return  tgh_srv.add_sender(generator);
 	}

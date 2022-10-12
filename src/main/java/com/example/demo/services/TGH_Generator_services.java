@@ -1,10 +1,15 @@
 package com.example.demo.services;
 
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+
+import org.hibernate.LobHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -24,7 +29,7 @@ import com.example.demo.repo.Sender_Repo;
 import com.example.demo.repo.TGH_Generator_Repo;
 import com.example.demo.repo.searchGeneratorTable;
 import com.example.demo.repo.searchObjectForGenerator;
-
+//import org.hibernate.impl.SessionImpl;
 @Service
 public class TGH_Generator_services 
 {
@@ -42,9 +47,31 @@ public class TGH_Generator_services
 
 //		-------------------------------------------------CREATE GENERATOR----------------------------------------------------------
 
-	public ApiException add_sender(TGH_Generator generator)
-	{ 
-   
+	public ApiException add_sender(TGH_Generator generator) throws UnsupportedEncodingException
+	{ //"Cp1256" ,"windows-1256"
+	   
+	    generator.setMessg(new String( generator.getMessg().getBytes(), "Cp1256"));
+	    System.out.println("FIrst"+generator.getMessg());
+//	    char[] ch_arr=generator.getMessg().toCharArray();
+////	    List<Character> chars = new ArrayList<>(); 
+////	    List<Character> chars_after = new ArrayList<>(); 
+//	    char[] ch_arr_after= new  char[ch_arr.length/2];
+//        // For each character in the String 
+//        // add it to the List 
+////        for (char ch :  generator.getMessg().toCharArray()) { 
+////  
+////            chars.add(ch); 
+////        } 
+//	    for (int i=0;i<ch_arr.length/2;i++)
+//	    {
+//	        ch_arr_after[i]=ch_arr[i];
+//	        System.out.println("letter"+i+"is \t"+ch_arr[i]);
+//	    }
+//	  
+	    
+//	    generator.setMessg(ch_arr_after.toString());
+	    System.out.println(generator.getMessg());
+//        System.out.println(generator.getMessg());
 //		String	name= rsb_controller.retriveNameByTelNum(generator.getCaller_number());
 //        generator.setCaller_name(name);
 		ApiException api_ex= new ApiException();

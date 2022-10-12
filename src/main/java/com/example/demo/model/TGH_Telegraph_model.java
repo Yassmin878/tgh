@@ -83,13 +83,12 @@ public class TGH_Telegraph_model {
 	@Column(name="GENERATED_BY")
 	private String gene_by;
 	
-	@NonNull
-	@Size(max = 20,message = "{javax.validation.constraints.Size.very long}")
+//	@NonNull
+//	@Size(max = 20,message = "{javax.validation.constraints.Size.very long}")
 	@Column(name="STATUS_CODE",updatable = true )
 	private String status_code="new";
 	
-	@NonNull
-	@Size(max = 200,message = "{javax.validation.constraints.Size.very long}")
+	
 	@Column(name="ADDRESS",updatable = true )
 	private String address;
 	
@@ -195,9 +194,9 @@ public TGH_Telegraph_model() {
 public TGH_Telegraph_model(Long id, Long gen_id, String sendername, String rec_name, String tgh_code, String user_code,
 		int seq_no, String caller_name, String plan_code, int delv_notice, int decoration, int urgent, int admin,
 		int international, int temp, Date send_date, String country_code, String mess, int redirect, String gene_by,
-		@Size(max = 20, message = "{javax.validation.constraints.Size.very long}") String status_code,
-		@Size(max = 200, message = "{javax.validation.constraints.Size.very long}") String address,
-		@Size(max = 500, message = "{javax.validation.constraints.Size.very long}") String notes, Date tgh_date,
+		 String status_code,
+	 String address,
+		String notes, Date tgh_date,
 		@Min(0) String cost) {
 	super();
 	this.id = id;

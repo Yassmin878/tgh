@@ -38,52 +38,36 @@ public class TGH_Generator {
 	
 	 @Column(name="GEN_ID",updatable=false )
 	 private  Long thgeneratorid;
-	 
-	 @NonNull
+
 	 @JsonFormat(pattern="yyyy-MM-dd")
 	 @Column(name="CALL_DATE" )
 	 private Date call_date;
-	 @NonNull
+
 	 @Column(name= "CALLER_TEL_NO",updatable=false )
 	 private String caller_number="23934389";
 	 
-	 @Size(min = 1, message = "{validation.name.size.too_short}")
-	 @Size(max = 20, message = "{validation.name.size.too_long}")
-	 @NonNull
 	 @Column(name="CALLER_NAME",updatable=true ,length = 20)
 	 private String caller_name;
 	 
-	 @NonNull
 	 @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
 	 @Column(name= "SEND_DATE",updatable=true)
      private Date  send_date;
 	
-	 @Min(0)
-	 @Max(1)
 	 @Column(name= "TEMPLATE",updatable=true)
 	 private int template_flag=0;
 	 
-	 @Size(min = 1, message = "{validation.name.size.too_short}")
-	 @Size(max = 10, message = "{validation.name.size.too_long}")
 	 @Column(name= "TEMP_TYPE_CODE",length =10)
 	 private String code_type_temp;
 	
-	 @Size(min = 1, message = "{validation.name.size.too_short}")
-	 @Size(max = 10, message = "{validation.name.size.too_long}")
 	 @Column(name= "TEMP_CODE",length =10)
 	 private String temp_Code;
 	 
-	 @Min(0)
-	 @Max(1)
 	 @Column(name= "DELIVERY_NOTICE",updatable=true)
 	 private int delivery_notice_flag;
-	 
-	 @Min(0)
-	 @Max(1)
+	 	 
 	 @Column(name= "URGENT",updatable=true)
 	 private int urgent_flag;
 
-	 @NonNull
 	 @Lob
 	 @Column(name=  "MESSAGE")
 	 private String messg;
@@ -114,46 +98,43 @@ public class TGH_Generator {
 	 
 	 @OneToMany(mappedBy="gene",fetch = FetchType.EAGER)
 	 private Set<TGH_Recepient> Recepients;
-//	 
-	 
-	 
+ 
 	public TGH_Generator() {
 		super();
 	}
 
-	public TGH_Generator(Long thgeneratorid, Date call_date, String caller_number,
-			@Size(min = 1, message = "{validation.name.size.too_short}") @Size(max = 20, message = "{validation.name.size.too_long}") String caller_name,
-			Date send_date, @Min(0) @Max(1) int template_flag,
-			@Size(min = 1, message = "{validation.name.size.too_short}") @Size(max = 10, message = "{validation.name.size.too_long}") String code_type_temp,
-			@Size(min = 1, message = "{validation.name.size.too_short}") @Size(max = 10, message = "{validation.name.size.too_long}") String temp_Code,
-			@Min(0) @Max(1) int delivery_notice_flag, @Min(0) @Max(1) int urgent_flag, String messg, String user_code,
-			String plan_code, int decoration, int admin, int international, String notes, String countryCode,
-			Set<Sender> senders, Set<TGH_Recepient> recepients) {
-		super();
-		this.thgeneratorid = thgeneratorid;
-		this.call_date = call_date;
-		this.caller_number = caller_number;
-		this.caller_name = caller_name;
-		this.send_date = send_date;
-		this.template_flag = template_flag;
-		this.code_type_temp = code_type_temp;
-		this.temp_Code = temp_Code;
-		this.delivery_notice_flag = delivery_notice_flag;
-		this.urgent_flag = urgent_flag;
-		this.messg = messg;
-		this.user_code = user_code;
-		this.plan_code = plan_code;
-		this.decoration = decoration;
-		this.admin = admin;
-		this.international = international;
-		this.notes = notes;
-		this.countryCode = countryCode;
-		this.senders = senders;
-		Recepients = recepients;
-	}
+	
+
+	public TGH_Generator(Long thgeneratorid, Date call_date, String caller_number, String caller_name, Date send_date,
+            int template_flag, String code_type_temp, String temp_Code, int delivery_notice_flag, int urgent_flag,
+            String messg, String user_code, String plan_code, int decoration, int admin, int international,
+            String notes, String countryCode, Set<Sender> senders, Set<TGH_Recepient> recepients) {
+        super();
+        this.thgeneratorid = thgeneratorid;
+        this.call_date = call_date;
+        this.caller_number = caller_number;
+        this.caller_name = caller_name;
+        this.send_date = send_date;
+        this.template_flag = template_flag;
+        this.code_type_temp = code_type_temp;
+        this.temp_Code = temp_Code;
+        this.delivery_notice_flag = delivery_notice_flag;
+        this.urgent_flag = urgent_flag;
+        this.messg = messg;
+        this.user_code = user_code;
+        this.plan_code = plan_code;
+        this.decoration = decoration;
+        this.admin = admin;
+        this.international = international;
+        this.notes = notes;
+        this.countryCode = countryCode;
+        this.senders = senders;
+        Recepients = recepients;
+    }
 
 
-	public String getUser_code() {
+
+    public String getUser_code() {
 		return user_code;
 	}
 
